@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Lazy.UI.UserControls.ControlPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lazy.UI.UserControls"
+             xmlns:dm="clr-namespace:Lazy.Core.ViewModels.DesignModels;assembly=Lazy.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500">
+    <Grid DataContext="{x:Static dm:ControlPanelDesignModel.Instane}"> 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource DarkBrush}" 
+                BorderThickness="0 0 1 0" 
+                BorderBrush="{StaticResource MediumLightBrush}" Panel.ZIndex="1">
+            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Button Style="{StaticResource BarButton}"
+                    Content="{StaticResource AssignmentIcon}"
+                    Command="{Binding OpenAssignmentsCommand}" Click="Button_Click"/>
+                <Button Style="{StaticResource BarButton}"
+                    Content="{StaticResource FixIcon}"
+                    Command="{Binding OpenFixesCommand}" Click="Button_Click_1"/>
+                <Button Style="{StaticResource BarButton}"
+                    Content="{StaticResource BugIcon}"
+                    Command="{Binding OpenBugsCommand}"/>
+                <Button Style="{StaticResource BarButton}"
+                    Content="{StaticResource OthersIcon}"
+                    Command="{Binding OpenOthersCommand}"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="border" Background="{StaticResource DarkBrush}" Grid.Column="1">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" To="-600, 0, 0, 0" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="items" ItemsSource="{Binding Elements}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:Element/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+</UserControl>

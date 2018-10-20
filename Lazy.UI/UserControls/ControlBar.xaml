@@ -1,0 +1,33 @@
+﻿ <UserControl x:Class="Lazy.UI.UserControls.ControlBar"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Lazy.UI"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="400" d:DesignWidth="50">
+	<Border Background="{StaticResource DarkBrush}" BorderThickness="0 0 1 0" BorderBrush="{StaticResource MediumLightBrush}">
+		<StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+			<Button Style="{StaticResource BarButton}"
+					Content="{StaticResource AssignmentIcon}"
+					Command="{Binding OpenAssignmentsCommand}" 
+					Tag="{Binding AssignmentsSelected}"/>
+			
+			<Button Style="{StaticResource BarButton}"
+					Content="{StaticResource FixIcon}"
+					Command="{Binding OpenFixesCommand}"
+					Tag="{Binding FixsesSelected}"/>
+			
+			<Button Style="{StaticResource BarButton}"
+					Content="{StaticResource BugIcon}"
+					Command="{Binding OpenBugsCommand}"
+					Tag="{Binding BugsSelected}"/>
+			
+			<Button Style="{StaticResource BarButton}"
+					Content="{StaticResource OthersIcon}"
+					Command="{Binding OpenOthersCommand}"
+					Tag="{Binding OthersSelected}"/>
+		</StackPanel>
+	</Border>
+</UserControl>
+		  

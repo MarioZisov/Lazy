@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Lazy.UI"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="MontserratRegular">pack://appliction;,,,/Fonts/#Montserrat</FontFamily>
+    <FontFamily x:Key="MontserratMedium">pack://appliction;,,,/Fonts/#Montserrat Medium</FontFamily>
+    <FontFamily x:Key="MontserratSemiBold">pack://appliction;,,,/Fonts/#Montserrat SemiBold</FontFamily>
+    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#Font Awesome 5 Free Regular</FontFamily>
+
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
+    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeLarge">30</system:Double>
+</ResourceDictionary>
