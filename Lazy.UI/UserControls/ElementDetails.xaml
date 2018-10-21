@@ -49,13 +49,14 @@
                        TextTrimming="CharacterEllipsis"
                        Grid.Column="2"/>
 
-            <Button Style="{StaticResource BarButton}"
+            <Button Style="{StaticResource IconButton}"
                     Grid.Column="3"
+                    Margin="0 0 7 0"
                     Content="{StaticResource EditIcon}" 
                     MinHeight="30"
                     MinWidth="30"/>
 
-            <Button Style="{StaticResource BarButton}" 
+            <Button Style="{StaticResource IconButton}" 
                     Grid.Column="4"
                     Content="{StaticResource DeleteIcon}" 
                     MinHeight="30" 
@@ -63,31 +64,29 @@
 
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/> 
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
+        <Border Grid.Row="2" Padding="10 5 10 5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource BarButton}" 
-                    Background="Transparent"
+                <Button Style="{StaticResource IconButton}" 
                     Content="{StaticResource DirectoryIcon}" 
                     Command="{Binding OpenDirectoryCommand}"
+                    Margin="0 0 7 0"
                     Grid.Column="0" 
-                    MinHeight="30"
-                    MinWidth="30"/>
+                    MinHeight="30"/>
 
-            <Button Style="{StaticResource BarButton}" 
+                <Button Style="{StaticResource IconButton}" 
                     Content="{StaticResource WebIcon}"     
                     Command="{Binding OpenUrlComand}"
-                    x:Name="webButton"
-                    Grid.Column="1" 
-                    MinHeight="30"
-                    MinWidth="30"/>
+                    Margin="0 0 10 0"
+                    Grid.Column="1"/>
 
-            <ComboBox Grid.Column="2"
+                <ComboBox Grid.Column="2"
                       Height="30" 
                       Width="150" 
                       ItemsSource="{Binding StatusItems}" 
@@ -96,22 +95,24 @@
                       Foreground="Red"
                       HorizontalAlignment="Left"
                       Style="{DynamicResource ComboBoxStyle1}" ItemContainerStyle="{DynamicResource ComboBoxItemStyle1}">
-                <!--<ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <local:StatusItem/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>-->
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <local:StatusItem/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <local:StatusItem/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
-            <Button Content="Save" Grid.Column="3" Height="30" Width="80" Margin="0 0 10 0">
-            </Button>
+                <Button Content="Save"
+                    Margin="0 0 3 0"
+                    Grid.Column="3" 
+                    Height="30"  
+                    Width="80" Style="{DynamicResource PrimaryButton}">
+                </Button>
 
-        </Grid>
+            </Grid>
+        </Border>
+        
+        
 
         <TextBox Grid.Row="3" 
                  Style="{StaticResource TextBoxBlock}"

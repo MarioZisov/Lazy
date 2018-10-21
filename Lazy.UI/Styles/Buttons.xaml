@@ -9,7 +9,7 @@
         <ResourceDictionary Source="Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="IconButton" TargetType="{x:Type Button}">
+    <Style x:Key="Icon" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -25,7 +25,26 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ControlIconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+    <Style x:Key="IconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Icon}">
+        <Setter Property="IsHitTestVisible" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource GrayBrush}"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="MinWidth" Value="30"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Foreground" Value="{StaticResource GrayBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="ControlIconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Icon}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource LightBrush}"/>
@@ -57,7 +76,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="BarButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+    <Style x:Key="BarButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Icon}">
         <Setter Property="IsHitTestVisible" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -81,7 +100,7 @@
 
     </Style>
 
-    <Style x:Key="ElementButton" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+    <Style x:Key="ElementButton" TargetType="{x:Type Button}" BasedOn="{StaticResource Icon}">
         <Setter Property="IsHitTestVisible" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -102,7 +121,7 @@
 
     </Style>
 
-    <Style x:Key="StatusIcon" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButton}">
+    <Style x:Key="StatusIcon" TargetType="{x:Type Button}" BasedOn="{StaticResource Icon}">
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="Transparent"/>

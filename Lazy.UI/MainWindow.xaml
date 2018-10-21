@@ -15,7 +15,7 @@
         WindowStartupLocation="CenterScreen"
         MinHeight="{Binding WindowMinimumHeight}"
         MinWidth="{Binding WindowMinimumWidth}"
-        Title="Lazy" Height="600" Width="900">
+        Title="Lazy" Height="700" Width="1200">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
